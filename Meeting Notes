@@ -1,3 +1,25 @@
+11/3/23
+Updates:
+- Talked to ULA during section, mini version of DDR pad will be more feasible
+- Wiring the led strip to the pi: https://www.youtube.com/watch?app=desktop&v=aNlaj1r7NKc
+
+Questions:
+- Do we want to sync music with light flashes on the pad?
+- Might hardcode values for a 30-45 second audio clip for the demo
+
+Items we have:
+- Raspberry PI
+- JBL Speaker for audio
+
+Items to buy:
+- 4 buttons (need arrow key stickers to put on them) ~ 25pc $10
+- Mini LED strip
+- 2 breadboards
+
+Items to buy in the future:
+- Case that’ll go over breadboards, which buttons will sit on and LEDs will wrap around
+
+
 11/2/23
 Brainstorm:
 - IOT aspect
