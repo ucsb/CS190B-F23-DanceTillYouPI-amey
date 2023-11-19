@@ -4,7 +4,7 @@ import time
 
 # Define USB device parameters
 VENDOR_ID = 0x0424  # Replace with your USB device's vendor ID
-PRODUCT_ID = 0xec00  # Replace with your USB device's product ID
+PRODUCT_ID = 0x9514  # Replace with your USB device's product ID
 INTERFACE = 0
 
 # USB control request parameters
@@ -20,6 +20,8 @@ if dev is None:
     raise ValueError("USB device not found.")
 
 try:
+    print("dev: ", dev)
+
     # Detach the kernel driver if active
     if dev.is_kernel_driver_active(INTERFACE):
         dev.detach_kernel_driver(INTERFACE)
