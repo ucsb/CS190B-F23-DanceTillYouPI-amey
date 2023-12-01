@@ -1,3 +1,12 @@
+11/28/23
+- 
+
+
+11/18/23
+- Started writing Python script for Raspberry Pi to control LEDs and detect button input
+- Confused how to control LED strip through USB, might have to control them with GPIO instead, unless we can figure out how to use py usb module to control through USB
+
+
 11/16/23
 - Breadboard + wires picked up
 - Buttons and LED strips acquired → we have all hardware necessary
@@ -70,6 +79,7 @@ Brainstorm:
 
 Online Tutorials for DDR
 https://www.youtube.com/watch?v=nXjj9IXUaA4
+
 
 10/18/23
 No Blockers
