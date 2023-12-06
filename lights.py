@@ -65,6 +65,8 @@ def main():
     # Clean up GPIO
     pi.stop()
 
+    results.append({"ts": results[-1]["ts"] + 2, "color": "PURPLE"})
+
     return results
 
 if __name__ == "__main__":
