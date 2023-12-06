@@ -1,3 +1,20 @@
+12/6/23
+- We are considering splitting the remaining work into 3 parts
+Audio/Visual requirements - JUSTIN
+  - 60 seconds of light flashes synchronized to a song
+  - Song must be played through connected speaker
+
+Syncing button presses and light flashes - ANUSHKA
+  - Record timestamps for light flashes
+  - Check if timestamp for button press is between the timestamps for the light flashes
+  - record/track correct presses and output the overall accuracy
+
+IOT/display table data - AMEY
+  - Sending accuracy data into dynamo DB tables
+  - Display data on html server/file (query DB table)
+  - Show current score and top 5 scores all time
+
+
 11/28/23
 - Went to OH and got Lights.py to work
 - Figured out how to connect the wires on the Led strip to the pi
