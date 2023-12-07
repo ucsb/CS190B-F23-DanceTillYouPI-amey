@@ -1,5 +1,9 @@
 12/6/23
 - We are considering splitting the remaining work into 3 parts
+  - Managing Audio/Visual aspect 
+  - Syncing button presses and light flashes
+  - IOT aspect → storing accuracy / points and sending to device
+
 Audio/Visual requirements - JUSTIN
   - 60 seconds of light flashes synchronized to a song
   - Song must be played through connected speaker
@@ -15,11 +19,20 @@ IOT/display table data - AMEY
   - Show current score and top 5 scores all time
 
 
+12/3/23
+- Attached and sensed buttons successfully
+- Program that reads in button presses
+
+
+12/2/23
+- Created program to have the lights flash random colors
+- Worked on attaching/ sensing buttons, could not get it to work because we need resistors
+
+
 11/28/23
 - Went to OH and got Lights.py to work
-- Figured out how to connect the wires on the Led strip to the pi
+  - Figured out how to connect the wires on the Led strip to the pi
 - Next meeting, will try to get the lights to flash random colors and program the buttons
-
 
 
 11/18/23
