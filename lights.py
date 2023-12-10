@@ -51,21 +51,21 @@ def main():
         
         print("Light", colorNames[rand], "is flashing at time", ts)
         
-        time.sleep(random.uniform(1, 2))
+        time.sleep(random.uniform(0.6, 1.4))
         prevColor = rand
         
     # Allow some time for the color to be visible (adjust as needed)
     # time.sleep(2)
 
-    pi.set_PWM_dutycycle(PIN_R, 255)
-    pi.set_PWM_dutycycle(PIN_G, 255)
-    pi.set_PWM_dutycycle(PIN_B, 255)
+    pi.set_PWM_dutycycle(PIN_R, 100)
+    pi.set_PWM_dutycycle(PIN_G, 100)
+    pi.set_PWM_dutycycle(PIN_B, 100)
     time.sleep(1)
 
     # Clean up GPIO
     pi.stop()
 
-    results.append({"ts": results[-1]["ts"] + 2, "color": "PURPLE"})
+    results.append({"ts": results[-1]["ts"] + 1.4, "color": "PURPLE"})
 
     return results
 

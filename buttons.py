@@ -40,8 +40,7 @@ def main():
     setup_button_events(RED_PIN, YELLOW_PIN, GREEN_PIN, BLUE_PIN, colors, results)
     
     try:
-        print("Press Ctrl+C to exit")
-        time.sleep(25)  # Keep the program running
+        time.sleep(20)  # Keep the program running
 
     except KeyboardInterrupt:
         pass 
@@ -49,6 +48,8 @@ def main():
     finally:
         # Clean up GPIO on program exit
         GPIO.cleanup()
+
+    # time.sleep(2)
 
     return results
 
