@@ -26,7 +26,7 @@ def button_callback(channel, colors, results):
     ts = time.time()
     results.append({"ts": ts, "color": colors[channel]})
     
-    print(f"{colors[channel]} Button pressed at time {ts}")
+    # print(f"{colors[channel]} Button pressed at time {ts}")
 
 def setup_button_events(RED_PIN, YELLOW_PIN, GREEN_PIN, BLUE_PIN, colors, results):
     # Add event detection for each button
@@ -40,7 +40,7 @@ def main():
     setup_button_events(RED_PIN, YELLOW_PIN, GREEN_PIN, BLUE_PIN, colors, results)
     
     try:
-        time.sleep(20)  # Keep the program running
+        time.sleep(55)  # Keep the program running
 
     except KeyboardInterrupt:
         pass 

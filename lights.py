@@ -31,28 +31,38 @@ def set_color(pi, r, g, b):
 
     return time.time()
 
+# setting the RGB values for red, yellow, green, and blue
+COLORS = [[255, 0, 0], [255, 80, 0], [0, 255, 0], [0, 0, 255]]
+COLORNAMES = ["RED", "YELLOW", "GREEN", "BLUE"]
+
+def showLight(pi, results, prevColor):
+    rand = random.randrange(4)
+    while rand == prevColor:
+        rand = random.randrange(4)
+
+    color = COLORS[rand]
+    ts = set_color(pi, color[0], color[1], color[2])
+    results.append({"ts": ts, "color": COLORNAMES[rand]})
+    
+    # print("Light", COLORNAMES[rand], "is flashing at time", ts)
+
+    return results, rand
+
 def main():
     pi = initialize()
-    
-    # setting the RGB values for red, yellow, green, and blue
-    colors = [[255, 0, 0], [255, 80, 0], [0, 255, 0], [0, 0, 255]]
-    colorNames = ["RED", "YELLOW", "GREEN", "BLUE"]
-    prevColor = -1
+        
     results = []
+    prevColor = -1
 
-    for i in range(0, 15):
-        rand = random.randrange(4)
-        while rand == prevColor:
-            rand = random.randrange(4)
+    # === TIMING ===
 
-        color = colors[rand]
-        ts = set_color(pi, color[0], color[1], color[2])
-        results.append({"ts": ts, "color": colorNames[rand]})
-        
-        print("Light", colorNames[rand], "is flashing at time", ts)
-        
-        time.sleep(random.uniform(0.6, 1.4))
-        prevColor = rand
+    time.sleep(1.47)
+    results, prevColor = showLight(pi, results, prevColor)
+    for i in range(53):
+        time.sleep(0.7)
+        results, prevColor = showLight(pi, results, prevColor)
+
+    # === END TIMING ===
         
     # Allow some time for the color to be visible (adjust as needed)
     # time.sleep(2)
@@ -65,7 +75,7 @@ def main():
     # Clean up GPIO
     pi.stop()
 
-    results.append({"ts": results[-1]["ts"] + 1.4, "color": "PURPLE"})
+    results.append({"ts": results[-1]["ts"] + 0.7, "color": "PURPLE"})
 
     return results
 

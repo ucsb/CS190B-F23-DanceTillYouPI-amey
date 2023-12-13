@@ -4,6 +4,7 @@ import buttons
 import time
 import boto3
 import os
+import pygame
 from decimal import Decimal
 from dotenv import load_dotenv
 
@@ -26,7 +27,8 @@ def button_process(queue):
 def multiplier(buttonTS, lightTS, nextLightTS):
     reaction = buttonTS - lightTS
     lightTime = nextLightTS - lightTS
-    return 0.8 + 0.2 * (lightTime - reaction) / lightTime
+    # return 0.8 + 0.2 * (lightTime - reaction) / lightTime
+    return 1 - abs((lightTS + nextLightTS) / 2 - buttonTS)
 
 def calculateScore(light_result, button_result):
     # light_result = [{'ts': 1, 'color': 'RED'}, {'ts': 2, 'color': 'GREEN'}, {'ts': 3, 'color': 'YELLOW'}, {'ts': 4, 'color': 'GREEN'}, {'ts': 5, 'color': 'BLUE'}, {'ts': 7, 'color': 'PURPLE'}]
@@ -37,11 +39,15 @@ def calculateScore(light_result, button_result):
     button_index = 0
     
     for light_index in range(len(light_result) - 1):
+        # print("light index:", light_index)
         lightTS = light_result[light_index]["ts"]
         lightColor = light_result[light_index]["color"]
         nextLightTS = light_result[light_index + 1]["ts"]
+        
+        if button_index >= len(button_result):
+            break
 
-        # buttonTS = button_result[button_index]["ts"]
+        buttonTS = button_result[button_index]["ts"]
 
         buttonPressed = False
 
@@ -65,6 +71,7 @@ def calculateScore(light_result, button_result):
                 break
             
             button_index += 1
+            # print("button index:", button_index)
             # print("button index: " + str(button_index))
 
             # print("while loop")
@@ -87,9 +94,18 @@ if __name__ == "__main__":
     # Initialize DynamoDB client
     dynamodb = boto3.resource('dynamodb', aws_access_key_id=aws_access_key_id, aws_secret_access_key=aws_secret_access_key, region_name=aws_region)
     table = dynamodb.Table(dynamodb_table)
+    
+    pygame.mixer.init()
+    pygame.mixer.music.load("pimusic.mp3")
 
     name = input("Enter player name: ")
     print()
+    print("Welcome,", name + "!")
+    print("Press the buttons to the beat of the song!")
+    print()
+    time.sleep(1)
+    
+    pygame.mixer.music.play()
     
     print("Game starting in 3 seconds...")
     time.sleep(1)
@@ -104,6 +120,8 @@ if __name__ == "__main__":
     light_proc = multiprocessing.Process(target=light_process, args=(result_queue,))
     button_proc = multiprocessing.Process(target=button_process, args=(result_queue,))
 
+    time.sleep(8)
+
     light_proc.start()
     button_proc.start()
 
@@ -114,9 +132,13 @@ if __name__ == "__main__":
     light_result = result_queue.get()
     button_result = result_queue.get()
 
-    # print("Light result:", light_result)
-    # print("Button result:", button_result)
 
+
+
+    # print("Light result size:", len(light_result))
+    # print("Button result size:", len(button_result))
+
+    print("==========")
     score = round(calculateScore(light_result, button_result), 5) * 100
     print("score:", score)
 
@@ -128,6 +150,9 @@ if __name__ == "__main__":
         'name': name,
         'accuracy' : Decimal("{:.5f}".format(score))
     }
+
+    # print("light:", light_result)
+    # print("button:", button_result)
 
     try:
         response = table.put_item(Item=score_to_add)
