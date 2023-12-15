@@ -1,3 +1,20 @@
+12/14
+- Completed final report and readme file
+
+
+12/12
+- Successfully controlled audio output to speaker through Python script on RPi
+- Synchronized light flashes to short clip from “Blinding Lights” by the Weeknd
+- Modified scoring system
+- Constructed physical game enclosure and decorations
+- Completed final presentation + demo
+
+
+12/9
+- Amey Updates: Finished IOT component
+  - Game results stored into dynamodb table and displayed on local html file
+
+
 12/6/23
 - We are considering splitting the remaining work into 3 parts
   - Managing Audio/Visual aspect 
