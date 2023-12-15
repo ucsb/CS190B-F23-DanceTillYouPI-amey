@@ -6,7 +6,19 @@ Dance Till You Pi is a play on the phrase, “Dance till you die”. Inspired by
 
 Link to the repo which holds our Python scoreboard site app, which should be ran locally: https://github.com/ucsb/CS190B-F23-DanceTillYouPI_site-amey
 
-## System Requirements
+## System/Hardware Requirements
+
+- Hardware
+  - Raspberry Pi 3+ with the correct materials wired according to the circuit design in the following report: https://docs.google.com/document/d/1wn_F_fbZ-ysNz_FigIv5YOPtcX03leDa6nCULRiJ6Fw/edit?usp=sharing
+  - Speaker connected to the RPi through the 3.5mm audio input port
+- Additional system tools
+  - Python 3.9+
 
 ## Installation
 
+The following should be done on the RPi:
+
+```
+git clone
+cd ./
+```
