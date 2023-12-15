@@ -9,7 +9,7 @@ Link to the repo which holds our Python scoreboard site app, which should be ran
 ## System/Hardware Requirements
 
 - Hardware
-  - Raspberry Pi 3+ with the correct materials wired according to the circuit design in the following report: https://docs.google.com/document/d/1wn_F_fbZ-ysNz_FigIv5YOPtcX03leDa6nCULRiJ6Fw/edit?usp=sharing
+  - Raspberry Pi 3+ with the correct materials wired according to the circuit design in `CS190B_F23_DanceTillYouPI.pdf`
   - Speaker connected to the RPi through the 3.5mm audio input port
 - Additional system tools
   - Python 3.9+
