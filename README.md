@@ -14,11 +14,30 @@ Link to the repo which holds our Python scoreboard site app, which should be ran
 - Additional system tools
   - Python 3.9+
 
-## Installation
+## Installation and the first step
 
 The following should be done on the RPi:
 
 ```
-git clone
-cd ./
+git clone https://github.com/ucsb/CS190B-F23-DanceTillYouPI-amey.git
+cd ./CS190B-F23-DanceTillYouPI-amey
+sudo apt-get update
+sudo apt-get install pigpio
+sudo apt-get install python3-rpi.gpio
+sudo apt-get install python3-pygame
+sudo pigpiod
+python3 ./game_controller.py
 ```
+
+### Environment variables
+
+Environment variables for a dynamoDB to store the leaderboard must be set prior to running the game.
+
+- `AWS_ACCESS_KEY`
+  - An AWS access key associated with an IAM account.
+- `AWS_SECRET_ACCESS_KEY`
+  - The secret key associated with the access key. This is essentially the "password" for the access key.
+- `REGION`
+  - The AWS Region to send the request to.
+- `TABLE_NAME`
+  - The name of the DynamoDB table to store the leaderboard.
